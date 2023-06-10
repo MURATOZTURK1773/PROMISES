@@ -15,8 +15,17 @@
  * Example: export const getPromise = (bool) = return <Your promise constructor code>
  */
 
-export const getPromise = () => {
+export const getPromise = (boolean) => {
   // Your code goes here...
+  if (boolean === true) {
+    return new Promise((resolve, reject) => {
+      resolve('The PROMISE was RESOLVED');
+      });
+  } else if (boolean === false) {
+    return new Promise((resolve, reject) => {
+      reject('The PROMISE was REJECTED');
+      });
+  } 
 };
 
 /**
@@ -28,9 +37,15 @@ export const getPromise = () => {
  * The handlePromise() function must be exported
  */
 
-export const handlePromise = () => {
+export const handlePromise = (promise) => {
   // Your code goes here...
+  return promise.then(
+    (onFulfilled) => onFulfilled,
+    (onRejected) => 'Uh Oh'
+  );
 };
+
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-2"
