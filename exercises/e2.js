@@ -15,18 +15,29 @@
  * Example: export const getPromise = (bool) = return <Your promise constructor code>
  */
 
+// export const getPromise = (boolean) => {
+//   // Your code goes here...
+//   if (boolean === true) {
+//     return new Promise((resolve, reject) => {
+//       resolve('The PROMISE was RESOLVED');
+//       });
+//   } else if (boolean === false) {
+//     return new Promise((resolve, reject) => {
+//       reject('The PROMISE was REJECTED');
+//       });
+//   } 
+// };
+
 export const getPromise = (boolean) => {
-  // Your code goes here...
-  if (boolean === true) {
-    return new Promise((resolve, reject) => {
+
+  return new Promise((resolve, reject) => {
+    if (boolean) {
       resolve('The PROMISE was RESOLVED');
-      });
-  } else if (boolean === false) {
-    return new Promise((resolve, reject) => {
+    } else {
       reject('The PROMISE was REJECTED');
-      });
-  } 
-};
+    }
+  });
+}
 
 /**
  * Create a handlePromise function that follows:
@@ -41,7 +52,7 @@ export const handlePromise = (promise) => {
   // Your code goes here...
   return promise.then(
     (onFulfilled) => onFulfilled,
-    (onRejected) => 'Uh Oh'
+    () => 'Uh Oh'
   );
 };
 

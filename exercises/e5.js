@@ -23,7 +23,7 @@ export const attachTitle = (arg) => {
 
 export const getPromise = () => {
   // Your code goes here...
-  const myValue = new Promise((resolve, reject) => {
+  const myValue = new Promise((resolve) => {
     resolve('MANHATTAN');
   });
 

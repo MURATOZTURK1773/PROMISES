@@ -23,8 +23,7 @@ export function parsePromised(json) {
   // Your code goes here...
   return new Promise((resolve, reject) => {
     try {
-      const parsedJson = JSON.parse(json);
-      resolve(parsedJson);
+      resolve(JSON.parse(json));
     } catch (e) {
       reject(e);
     }
@@ -57,10 +56,10 @@ export function onReject(e) {
 
 export const handlePromise = (promise) => {
   // Your code goes here...
-  const myOtherPromise = new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     resolve(promise);
-  });
-  return myOtherPromise.then(
+  })
+  .then(
     (value) => {
 	  return value;
 	},

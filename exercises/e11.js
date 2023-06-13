@@ -40,7 +40,7 @@ const getLoginList = (data) => {
 
 // Your code goes here ...
 
-const getData = fetch('http://localhost:3000/users/');
+const getData = fetch(usersUrl);
 
 /**
  * @task 

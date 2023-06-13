@@ -14,7 +14,7 @@
 export function iterate(arg) {
   // Your code goes here...
   console.log(arg);
-  return arg + 1;
+  return arg += 1;
 }
 
 /**
@@ -39,7 +39,7 @@ export function alwaysThrows() {
 
 export function onReject(error) {
   // Your code goes here...
-  if (typeof error === 'object' && error !== null && error.hasOwnProperty('message')) {
+  if (error.message) {
     console.log(error.message);
   } else {
     console.log(error);
@@ -68,20 +68,19 @@ export function onReject(error) {
  */
 
 // Your code goes here...
-export const promise = Promise.resolve()
-  .then(iterate)
-  .then(iterate)
-  .then(iterate)
-  .then(iterate)
-  .then(iterate)
+export const promise = Promise.resolve(iterate(1))
+  .then((arg) => iterate(arg))
+  .then((arg) => iterate(arg))
+  .then((arg) => iterate(arg))
+  .then((arg) => iterate(arg))
   .then(alwaysThrows)
-  .then(iterate)
-  .then(iterate)
-  .then(iterate)
-  .then(iterate)
-  .then(iterate)
+  .then((arg) => iterate(arg))
+  .then((arg) => iterate(arg))
+  .then((arg) => iterate(arg))
+  .then((arg) => iterate(arg))
+  .then((arg) => iterate(arg))
   .catch((e) => {
-    console.log(e.message);
+    onReject(e);
   });
   
 

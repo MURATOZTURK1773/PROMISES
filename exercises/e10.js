@@ -24,17 +24,7 @@ export const promiseArr = [promise1, promise2, promise3, promise4];
  */
 
 // Your code goes here...
-export const handlePromise1 = Promise.allSettled(promiseArr)
-.then((results) => {
-  for (const result of results) {
-    if (result.status ==='rejected' && result.reason === 'Promise 2 REJECTED') {
-      return result.reason;
-    }}
-  })
-  .catch((e) => {
-    throw e;
-  });
-
+export const handlePromise1 = Promise.all(promiseArr).catch((reason) => reason);
 /**
  * @task
  * * Create the handlePromise2 function that follows:
@@ -95,7 +85,7 @@ export const handlePromise3 = (promiseArr) => {
  */
 
 export const newPromiseArr = promiseArr.filter((promise) => {
-  return promise !== promise4;
+  return promise !== promise4 && promise1;
 });
 // Do NOT refactor or update handlePromise4 function, it's all set to work
 export const handlePromise4 = (arr) => {
