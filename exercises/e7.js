@@ -66,6 +66,8 @@ export const handlePromise = (promise) => {
   (reason) => {
 	  if (reason.message) {
       return onReject(reason);
+      } else {
+        return reason;
       }
   });
 };

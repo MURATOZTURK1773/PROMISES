@@ -19,12 +19,8 @@ export const handlePromise = () => {
   return new Promise((reject) => {
     reject('REJECTED');
   })
-  .catch((reason) => {
-    console.log(reason);
-  })
-  .finally(() => {
-    console.log('This promise is finished!');
-  });
+  .catch((reason) => console.log(reason))
+  .finally(() => console.log('This promise is finished!'));
 }
 
 

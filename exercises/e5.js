@@ -23,11 +23,9 @@ export const attachTitle = (arg) => {
 
 export const getPromise = () => {
   // Your code goes here...
-  const myValue = new Promise((resolve) => {
+  return new Promise((resolve) => {
     resolve('MANHATTAN');
-  });
-
-  return myValue
+  })
   .then((value) => attachTitle(value))
   .then((value) => {
     console.log(value);

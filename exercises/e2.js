@@ -51,7 +51,7 @@ export const getPromise = (boolean) => {
 export const handlePromise = (promise) => {
   // Your code goes here...
   return promise.then(
-    (onFulfilled) => onFulfilled,
+    (value) => value,
     () => 'Uh Oh'
   );
 };

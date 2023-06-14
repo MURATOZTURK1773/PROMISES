@@ -42,13 +42,12 @@ export const handlePromise1 = Promise.all(promiseArr).catch((reason) => reason);
 // Your code goes here...
 
 export function handlePromise2(promiseArr) {
-  return Promise.any(promiseArr.map((promise) => promise.catch(() => undefined)))
-
-    .then(() => {
-      return "Promise 3 RESOLVED"
+  return Promise.any(promiseArr)
+    .then((val) => {
+      return val;
     })
     .catch((error) => {
-      throw error;
+      return error;
     });
 }
 
@@ -71,7 +70,8 @@ export function handlePromise2(promiseArr) {
 
 // Your code goes here...
 export const handlePromise3 = (promiseArr) => {
-  return Promise.allSettled(promiseArr).then((res) => {
+  return Promise.allSettled(promiseArr)
+  .then((res) => {
     return res;
     }).catch((e) => e);
 }
@@ -85,7 +85,7 @@ export const handlePromise3 = (promiseArr) => {
  */
 
 export const newPromiseArr = promiseArr.filter((promise) => {
-  return promise !== promise4 && promise1;
+  return promise !== promise2 && promise !== promise3;
 });
 // Do NOT refactor or update handlePromise4 function, it's all set to work
 export const handlePromise4 = (arr) => {
